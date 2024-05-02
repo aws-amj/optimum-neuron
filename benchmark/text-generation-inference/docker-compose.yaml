@@ -15,7 +15,9 @@ services:
       - MAX_BATCH_SIZE=${MAX_BATCH_SIZE}
       - MAX_INPUT_LENGTH=${MAX_INPUT_LENGTH}
       - MAX_TOTAL_TOKENS=${MAX_TOTAL_TOKENS}
+      - MAX_BATCH_PREFILL_TOKENS=${MAX_BATCH_PREFILL_TOKENS}
       - MAX_CONCURRENT_REQUESTS=512
+      - HF_TOKEN=${HF_TOKEN}
     devices:
       - "/dev/neuron0"
       - "/dev/neuron1"
@@ -36,7 +38,9 @@ services:
       - MAX_BATCH_SIZE=${MAX_BATCH_SIZE}
       - MAX_INPUT_LENGTH=${MAX_INPUT_LENGTH}
       - MAX_TOTAL_TOKENS=${MAX_TOTAL_TOKENS}
+      - MAX_BATCH_PREFILL_TOKENS=${MAX_BATCH_PREFILL_TOKENS}
       - MAX_CONCURRENT_REQUESTS=512
+      - HF_TOKEN=${HF_TOKEN}
     devices:
       - "/dev/neuron4"
       - "/dev/neuron5"
@@ -57,7 +61,9 @@ services:
       - MAX_BATCH_SIZE=${MAX_BATCH_SIZE}
       - MAX_INPUT_LENGTH=${MAX_INPUT_LENGTH}
       - MAX_TOTAL_TOKENS=${MAX_TOTAL_TOKENS}
+      - MAX_BATCH_PREFILL_TOKENS=${MAX_BATCH_PREFILL_TOKENS}
       - MAX_CONCURRENT_REQUESTS=512
+      - HF_TOKEN=${HF_TOKEN}
     devices:
       - "/dev/neuron8"
       - "/dev/neuron9"
