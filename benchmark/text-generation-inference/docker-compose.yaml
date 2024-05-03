@@ -47,29 +47,6 @@ services:
       - "/dev/neuron6"
       - "/dev/neuron7"
 
-  tgi-3:
-    image: neuronx-tgi:latest
-    ports:
-      - "8083:8083"
-    environment:
-      - PORT=8083
-      - MODEL_ID=${MODEL_ID}
-      - HF_BATCH_SIZE=${HF_BATCH_SIZE}
-      - HF_SEQUENCE_LENGTH=${HF_SEQUENCE_LENGTH}
-      - HF_AUTO_CAST_TYPE=${HF_AUTO_CAST_TYPE}
-      - HF_NUM_CORES=8
-      - MAX_BATCH_SIZE=${MAX_BATCH_SIZE}
-      - MAX_INPUT_LENGTH=${MAX_INPUT_LENGTH}
-      - MAX_TOTAL_TOKENS=${MAX_TOTAL_TOKENS}
-      - MAX_BATCH_PREFILL_TOKENS=${MAX_BATCH_PREFILL_TOKENS}
-      - MAX_CONCURRENT_REQUESTS=512
-      - HF_TOKEN=${HF_TOKEN}
-    devices:
-      - "/dev/neuron8"
-      - "/dev/neuron9"
-      - "/dev/neuron10"
-      - "/dev/neuron11"
-
   loadbalancer:
     image: nginx:alpine
     ports:
@@ -79,7 +56,6 @@ services:
     depends_on:
       - tgi-1
       - tgi-2
-      - tgi-3
     deploy:
       placement:
         constraints: [node.role == manager]
